@@ -22,6 +22,4 @@ TestResults/
 .idea/
 .DS_Store
 
-# Arquivos locais do trabalho (não versionados no GitHub)
-Projeto_2_-_Arquitetura_de_microsservicos*.pdf
-mockup.jpg
+.docs
