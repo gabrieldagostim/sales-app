@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <!-- O SDK local (10.0.113) não possui o prune data do targeting pack
+         Microsoft.AspNetCore.App 10.0.13 instalado; o workaround oficial
+         é habilitar esta flag para o restore/build funcionar. -->
+    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
+
+    <!-- Gera o XML de documentação (comentários ///) usado pelo Swagger -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+</Project>

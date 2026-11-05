@@ -1,0 +1,27 @@
+# .NET
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.user
+.vs/
+*.suo
+publish/
+out/
+TestResults/
+*.nupkg
+*.snupkg
+
+# Bancos SQLite locais (gerados ao executar)
+*.db
+*.db-shm
+*.db-wal
+
+# IDEs / SO
+.vscode/
+.idea/
+.DS_Store
+
+# Arquivos locais do trabalho (não versionados no GitHub)
+Projeto_2_-_Arquitetura_de_microsservicos*.pdf
+mockup.jpg
