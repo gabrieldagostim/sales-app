@@ -1,0 +1,42 @@
+# Blueprint do Render — cria os 4 microsserviços de uma vez.
+# Os nomes abaixo definem as URLs públicas (https://<nome>.onrender.com).
+# Se algum nome já estiver ocupado no Render, troque-o e ajuste as URLs das integrações.
+services:
+  - type: web
+    name: sales-estoque
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/EstoqueService/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: Integracoes__DocumentoFiscalBaseUrl
+        value: https://sales-documento-fiscal.onrender.com
+      - key: Integracoes__ExpedicaoBaseUrl
+        value: https://sales-expedicao.onrender.com
+
+  - type: web
+    name: sales-pagamento
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/PagamentoService/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: Integracoes__EstoqueBaseUrl
+        value: https://sales-estoque.onrender.com
+
+  - type: web
+    name: sales-documento-fiscal
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/DocumentoFiscalService/Dockerfile
+    dockerContext: .
+    envVars:
+      - key: Integracoes__EstoqueBaseUrl
+        value: https://sales-estoque.onrender.com
+
+  - type: web
+    name: sales-expedicao
+    runtime: docker
+    plan: free
+    dockerfilePath: ./src/ExpedicaoService/Dockerfile
+    dockerContext: .
